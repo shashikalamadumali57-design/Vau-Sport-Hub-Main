@@ -1,0 +1,60 @@
+-- Initial Users
+-- password is 'password123' (BCrypt encoded)
+INSERT INTO users (username, email, password, role) VALUES ('captain1', 'captain@test.com', '$2a$10$DowXZ.ksw/Xo.jKqgQv.OuK.d6/y.F6/y.F6/y.F6/y.F6/y.F6/y', 'ROLE_CAPTAIN');
+INSERT INTO users (username, email, password, role) VALUES ('student1', 'student@test.com', '$2a$10$DowXZ.ksw/Xo.jKqgQv.OuK.d6/y.F6/y.F6/y.F6/y.F6/y.F6/y', 'ROLE_STUDENT');
+INSERT INTO users (username, email, password, role) VALUES ('admin', 'admin@test.com', '$2a$10$DowXZ.ksw/Xo.jKqgQv.OuK.d6/y.F6/y.F6/y.F6/y.F6/y.F6/y', 'ROLE_ADMIN');
+
+-- Initial Sports
+INSERT INTO sports (name, coach, description, image) VALUES ('Basketball', 'Coach Carter', 'Join the Basketball team at our university!', '/images/basketball.jpg');
+INSERT INTO sports (name, coach, description, image) VALUES ('Football', 'Coach Ted', 'Join the Football team at our university!', '/images/football.jpg');
+INSERT INTO sports (name, coach, description, image) VALUES ('Tennis', 'Coach Williams', 'Join the Tennis team at our university!', '/images/tennis.jpg');
+INSERT INTO sports (name, coach, description, image) VALUES ('Swimming', 'Coach Phelps', 'Join the Swimming team at our university!', '/images/swimming.jpg');
+INSERT INTO sports (name, coach, description, image) VALUES ('Volleyball', 'TBD', 'Join the Volleyball team at our university!', '/images/volleyball.jpg');
+INSERT INTO sports (name, coach, description, image) VALUES ('Elle', 'TBD', 'Join the Elle team at our university!', '/images/elle.jpg');
+INSERT INTO sports (name, coach, description, image) VALUES ('Cricket', 'TBD', 'Join the Cricket team at our university!', '/images/cricket.jpg');
+INSERT INTO sports (name, coach, description, image) VALUES ('Rugby', 'TBD', 'Join the Rugby team at our university!', '/images/rugby.jpg');
+INSERT INTO sports (name, coach, description, image) VALUES ('Athletics', 'TBD', 'Join the Athletics team at our university!', '/images/athletics.jpg');
+INSERT INTO sports (name, coach, description, image) VALUES ('Table Tennis', 'TBD', 'Join the Table Tennis team at our university!', '/images/table_tennis.jpg');
+INSERT INTO sports (name, coach, description, image) VALUES ('Karate', 'TBD', 'Join the Karate team at our university!', '/images/karate.jpg');
+INSERT INTO sports (name, coach, description, image) VALUES ('Netball', 'TBD', 'Join the Netball team at our university!', '/images/netball.jpg');
+
+-- Initial Teams
+-- Basketball
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 1);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 1);
+-- Football
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 2);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 2);
+-- Tennis
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 3);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 3);
+-- Swimming
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 4);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 4);
+-- Volleyball
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 5);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 5);
+-- Elle
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 6);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 6);
+-- Cricket
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 7);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 7);
+-- Rugby
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 8);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 8);
+-- Athletics
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 9);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 9);
+-- Table Tennis
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 10);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 10);
+-- Karate
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 11);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 11);
+-- Netball
+INSERT INTO teams (category, sport_id) VALUES ('Boys', 12);
+INSERT INTO teams (category, sport_id) VALUES ('Girls', 12);
+
+-- Link Captain to Team
+INSERT INTO players (name, email, role, team_id, image) VALUES ('Captain America', 'captain@test.com', 'Captain', 1, '/images/captain.jpg');

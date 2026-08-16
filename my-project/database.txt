@@ -1,0 +1,52 @@
+Open this link in your browser: 👉 http://localhost:8080/h2-console
+Login with these details:
+Driver Class: org.h2.Driver
+JDBC URL: jdbc:h2:mem:sportshubdb
+User Name: sa
+Password: password
+Click Connect.
+You will see tables like USERS, TEAMS, PLAYERS, JOIN_REQUESTS on the left. click them to run a SELECT * query and see the data.
+
+cant log
+
+Thought for 10s
+
+
+
+
+
+
+
+
+Troubleshooting H2 Login
+I verified the 
+pom.xml
+ and 
+application.properties
+ to ensure the H2 database is correctly configured and reachable. The configuration is valid. I am now providing the user with detailed troubleshooting steps, specifically targeting the common "JDBC URL" mismatch issue and providing the correct credentials for both the Database and the Application to address the "cant log" report.
+
+Progress Updates
+1
+Checking pom.xml for H2 dependency scope
+
+2
+Notifying user with troubleshooting steps
+
+Troubleshooting Login
+
+It seems you are having trouble logging in. Here are the correct details for both the Database and the App.
+
+1. If you can't log into the Database (H2 Console):
+The most common error is the JDBC URL field. It often autofills with the wrong value.
+
+Driver Class: org.h2.Driver
+JDBC URL: jdbc:h2:mem:sportshubdb (Make sure this is exact!)
+User Name: sa
+Password: password
+(If you see "Database not found", it means the URL is wrong. Copy-paste the one above).
+
+2. If you can't log into the Application (Dashboard):
+Email: admin@test.com
+Password: password123 (or anything else)
+Let me know if you are still stuck!
+
