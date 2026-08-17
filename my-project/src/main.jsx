@@ -10,6 +10,10 @@ import { AnnouncementProvider } from "./context/AnnouncementContext";
 import { GalleryProvider } from "./context/GalleryContext";
 import { MessageProvider } from "./context/MessageContext";
 import ErrorBoundary from "./components/ErrorBoundary";
+import axios from "axios";
+
+// Bypass localtunnel warning globally
+axios.defaults.headers.common["Bypass-Tunnel-Reminder"] = "true";
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
