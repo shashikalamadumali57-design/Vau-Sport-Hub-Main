@@ -4,7 +4,6 @@ com\vav\sportshub\repository\UserRepository.class
 com\vav\sportshub\entity\Announcement.class
 com\vav\sportshub\entity\Match.class
 com\vav\sportshub\controller\MessageResponse.class
-com\vav\sportshub\controller\AvatarRequest.class
 com\vav\sportshub\repository\MatchRepository.class
 com\vav\sportshub\repository\SportRepository.class
 com\vav\sportshub\entity\Team.class
@@ -31,5 +30,4 @@ com\vav\sportshub\controller\MatchController.class
 com\vav\sportshub\security\JwtUtils.class
 com\vav\sportshub\security\WebSecurityConfig.class
 com\vav\sportshub\entity\User$Role.class
-com\vav\sportshub\service\EmailService.class
 com\vav\sportshub\repository\TeamRepository.class
