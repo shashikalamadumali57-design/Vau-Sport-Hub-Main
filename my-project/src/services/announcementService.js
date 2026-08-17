@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/announcements";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+const API_URL = `${BASE_URL}/api/announcements`;
 
 const getAuthHeader = () => {
   const user = JSON.parse(localStorage.getItem("user"));
