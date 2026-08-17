@@ -32,24 +32,32 @@ public class JoinRequestController {
     TeamRepository teamRepository;
 
     @PostMapping
-    public ResponseEntity<?> createJoinRequest(@RequestBody JoinRequest joinRequest) {
+    public ResponseEntity<?> createJoinRequest(
+            @RequestBody JoinRequest joinRequest,
+            @RequestHeader(value = "X-User-Email", required = false) String emailHeader) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null || !authentication.isAuthenticated()
-                || "anonymousUser".equals(authentication.getPrincipal())) {
-            return ResponseEntity.status(401).body("Error: You must be logged in to join a team.");
-        }
-
-        // Populate sender info from authentication
+        
         String email = "";
         String name = "";
-        Object principal = authentication.getPrincipal();
-        if (principal instanceof UserDetailsImpl) {
-            UserDetailsImpl userDetails = (UserDetailsImpl) principal;
-            email = userDetails.getEmail();
-            name = userDetails.getUsername(); // Using username as name if display name not available
+        
+        // Check JWT authentication first
+        if (authentication != null && authentication.isAuthenticated()
+                && !"anonymousUser".equals(authentication.getPrincipal())) {
+            Object principal = authentication.getPrincipal();
+            if (principal instanceof UserDetailsImpl) {
+                UserDetailsImpl userDetails = (UserDetailsImpl) principal;
+                email = userDetails.getEmail();
+                name = userDetails.getUsername();
+            } else {
+                email = authentication.getName();
+                name = authentication.getName();
+            }
+        } else if (emailHeader != null && !emailHeader.isEmpty()) {
+            // Fallback: use email from header (for mobile clients)
+            email = emailHeader;
+            name = emailHeader;
         } else {
-            email = authentication.getName();
-            name = authentication.getName();
+            return ResponseEntity.status(401).body("Error: You must be logged in to join a team.");
         }
 
         // Validate request

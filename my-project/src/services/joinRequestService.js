@@ -4,13 +4,18 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
 const API_URL = `${BASE_URL}/api/join-requests`;
 
 const getAuthHeader = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-        return {
-            Authorization: `Bearer ${user.token}`,
-            "X-User-Email": user.email,
-            "X-User-Role": user.role
-        };
+    try {
+        const user = JSON.parse(localStorage.getItem("user"));
+        const token = user?.token || user?.accessToken;
+        if (token) {
+            return {
+                Authorization: `Bearer ${token}`,
+                "X-User-Email": user.email || "",
+                "X-User-Role": user.role || ""
+            };
+        }
+    } catch (e) {
+        console.error("Error reading auth token", e);
     }
     return {};
 };
